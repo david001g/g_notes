@@ -55,6 +55,8 @@ class UserRepositoryImpl extends UserRepository{
     try{
       var db = FirebaseFirestore.instance;
       String? id = FirebaseAuth.instance.currentUser?.uid;
+      FirebaseAuth.instance.currentUser?.updateEmail(user.email!);
+      FirebaseAuth.instance.currentUser?.updateDisplayName(user.name!);
       UserModel newUser = UserModel(
         id: id,
         name: user.name,

@@ -19,36 +19,140 @@ class IntroductionPage extends StatelessWidget {
         showBackButton: true,
         next: const Text("Next"),
         back: const Text("Back"),
-        bodyPadding: EdgeInsets.symmetric(horizontal: 80.0.w, vertical: 40.0.h),
-        controlsMargin: EdgeInsets.only(bottom: 40.0.h, top: 40.0.h),
+        bodyPadding: EdgeInsets.symmetric(horizontal: 80.0.w),
+        controlsMargin: EdgeInsets.only(bottom: 40.0.h),
         controlsPadding: EdgeInsets.symmetric(horizontal: 20.0.w),
         pages: [
           PageViewModel(
-            title: "Effortlessly create and organize your notes",
-            body:
-                "Start jotting down your notes now and experience the simplicity of organized thinking at your fingertips.",
-            image: Center(
-              child: SvgPicture.asset(notesIntro, height: 500.h),
-            ),
-          ),
+              titleWidget: SvgPicture.asset(technologies, height: 250.h),
+              bodyWidget: SizedBox(
+                width: 350.w,
+                child: ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context)
+                      .copyWith(scrollbars: false),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    runSpacing: 5.h,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 20.0.h),
+                        child: Text(
+                          "Technologies used in this project",
+                          style: TextStyle(
+                              fontSize: 20.sp, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          Image.asset(cleanArchitecture, height: 50.h),
+                          Gap(10.w),
+                          Text("Clean Architecture",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          SvgPicture.asset(codeMagic, height: 50.h),
+                          Gap(10.w),
+                          Text("CodeMagic for CICD",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          SvgPicture.asset(firebase, height: 50.h),
+                          Gap(10.w),
+                          Text("Firebase Authentication/Firestore",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          SvgPicture.asset(github, height: 50.h),
+                          Gap(10.w),
+                          Text("Github version control",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          SvgPicture.asset(bloc, height: 50.h),
+                          Gap(10.w),
+                          Text("Bloc/Cubit for state management",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          SvgPicture.asset(routing, height: 50.h),
+                          Gap(10.w),
+                          Text("GoRouter for navigation",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Gap(40.w),
+                          SvgPicture.asset(dependencyInjection, height: 50.h),
+                          Gap(10.w),
+                          Text("Get_it for dependency injection",
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold)),
+                          const Spacer(),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              )),
           PageViewModel(
-            title: "Stay organized with categories",
-            body:
-                "Create custom categories to keep your thoughts in perfect order, and never lose track of your most valuable information again",
-            image: Center(
-              child: SvgPicture.asset(categoriesIntro, height: 500.h),
-            ),
-          ),
-          PageViewModel(
-            title: "Lets get you onboard!",
-            image: Center(
-              child: SvgPicture.asset(getOnboard, height: 500.h),
-            ),
+            titleWidget: SvgPicture.asset(getOnboard, height: 500.h),
             bodyWidget: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    "Lets get you onboard!",
+                    style: TextStyle(fontSize: 20.sp),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 ElevatedButton(
                   onPressed: () => context.goNamed(AppRoute.login.name),
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green[400],
                     fixedSize: Size(200.w, 50.h),
                   ),
                   child: const Text("Sign In"),

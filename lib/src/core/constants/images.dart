@@ -22,3 +22,13 @@ String starterAvatar = 'assets/images/avatars/starter.svg';
 String notesIntro = 'assets/images/introduction/notes_intro.svg';
 String categoriesIntro = 'assets/images/introduction/categories_intro.svg';
 String getOnboard = 'assets/images/introduction/get_onboard.svg';
+String technologies = 'assets/images/introduction/technologies.svg';
+
+//technologies
+String cleanArchitecture = 'assets/images/technologies/clean_architecture.png';
+String codeMagic = 'assets/images/technologies/code_magic.svg';
+String firebase = 'assets/images/technologies/firebase.svg';
+String github = 'assets/images/technologies/github.svg';
+String bloc = 'assets/images/technologies/bloc.svg';
+String routing = 'assets/images/technologies/routing.svg';
+String dependencyInjection = 'assets/images/technologies/dependency_injection.svg';

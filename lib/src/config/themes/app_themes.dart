@@ -6,6 +6,7 @@ ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: primaryLightPurple,
     fontFamily: GoogleFonts.poppins().fontFamily,
+
   );
 }
 

@@ -25,7 +25,7 @@ class NoteCardList extends StatelessWidget {
             case NoteLoading:
               return const LoadingIndicator();
             case NoteEmpty:
-              return const EmptyIndicator(width: 500, height: 500);
+              return const EmptyIndicator(width: 650, height: 650);
             case NoteDone:
               return SizedBox(
                 height: 680.h,
