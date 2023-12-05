@@ -48,14 +48,15 @@ class NoteRepositoryImpl implements NoteRepository {
   Future<void> deleteAllNotes() async {
     try {
       var db = FirebaseFirestore.instance;
-      await db.collection('notes').get().then(
-            (snapshot) {
-              for (DocumentSnapshot ds in snapshot.docs){
-                ds.reference.delete();
-              }
-            },
-            onError: (e) => print("Error updating document $e"),
-          );
+      var currentUserId = FirebaseAuth.instance.currentUser?.uid;
+      await db.collection('notes')
+          .where('user_id', isEqualTo: currentUserId)
+          .get().then(
+              (event) => {
+                for (var doc in event.docs)
+                  {doc.reference.delete()}
+              },
+              onError: (e) => print("Error getting documents $e"));
     } catch (e) {
       print(e);
     }

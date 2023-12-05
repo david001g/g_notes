@@ -31,7 +31,7 @@ class NotesCubit extends Cubit<NotesState> {
 
       if (_allNotes.isEmpty) {
         emit(const NoteEmpty());
-      }else{
+      } else {
         //emit(const NoteEmpty());
         emit(NoteDone(notes: _allNotes));
       }
@@ -40,9 +40,9 @@ class NotesCubit extends Cubit<NotesState> {
     }
   }
 
-  void createNote(NoteEntity note) async{
+  void createNote(NoteEntity note) async {
     emit(const NoteLoading());
-    try{
+    try {
       await _useCaseCollection.createNote(
         params: note,
       );
@@ -52,19 +52,18 @@ class NotesCubit extends Cubit<NotesState> {
       emit(const NotePaginationRefresh());
       if (_allNotes.isEmpty) {
         emit(const NoteEmpty());
-      }else{
+      } else {
         //emit(const NoteEmpty());
         emit(NoteDone(notes: _allNotes));
       }
-    }
-    catch(e){
+    } catch (e) {
       emit(NoteError(message: e.toString()));
     }
   }
 
-  void updateNote(NoteEntity note) async{
+  void updateNote(NoteEntity note) async {
     emit(const NoteLoading());
-    try{
+    try {
       await _useCaseCollection.updateNote(
         params: note,
       );
@@ -73,19 +72,18 @@ class NotesCubit extends Cubit<NotesState> {
 
       if (_allNotes.isEmpty) {
         emit(const NoteEmpty());
-      }else{
+      } else {
         //emit(const NoteEmpty());
         emit(NoteDone(notes: _allNotes));
       }
-    }
-    catch(e){
+    } catch (e) {
       emit(NoteError(message: e.toString()));
     }
   }
 
-  void deleteNote(String id) async{
+  void deleteNote(String id) async {
     emit(const NoteLoading());
-    try{
+    try {
       await _useCaseCollection.deleteNote(
         params: id,
       );
@@ -96,34 +94,40 @@ class NotesCubit extends Cubit<NotesState> {
 
       if (_allNotes.isEmpty) {
         emit(const NoteEmpty());
-      }else{
+      } else {
         //emit(const NoteEmpty());
         emit(NoteDone(notes: _allNotes));
       }
-    }
-    catch(e){
+    } catch (e) {
       emit(NoteError(message: e.toString()));
     }
   }
 
-  void sortByCategory(String id) async{
+  void deleteAllNotes() async {
     emit(const NoteLoading());
-    try{
+    try {
+      await _useCaseCollection.deleteAllNotes();
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void sortByCategory(String id) async {
+    emit(const NoteLoading());
+    try {
       if (_allNotes.isEmpty) {
         emit(const NoteEmpty());
-      }else{
+      } else {
         _allNotes = await _useCaseCollection.getNotes();
         _allNotes = _allNotes.where((element) => element!.categoryId == id).toList();
         emit(NoteDone(notes: _allNotes));
       }
-    }
-    catch(e){
+    } catch (e) {
       emit(NoteError(message: e.toString()));
     }
   }
 
-
   int get notesCount => _notesCount;
-  void setPage(int page) => _page = page;
 
+  void setPage(int page) => _page = page;
 }

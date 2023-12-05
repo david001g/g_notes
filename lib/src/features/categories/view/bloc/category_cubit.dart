@@ -51,6 +51,9 @@ class CategoryCubit extends Cubit<CategoryState> {
       emit(CategoryRefresh());
     }
   }
+  Future<void> deleteAllCategories() async {
+    await _useCaseCollection.deleteAllCategories();
+  }
 
   void refreshCategories() async {
     emit(CategoryLoading());

@@ -12,6 +12,9 @@ class CategoryUseCases {
   Future<void> deleteCategory({String? params}) {
     return _categoryRepository.deleteCategory(params!);
   }
+  Future<void> deleteAllCategories({void params}) {
+    return _categoryRepository.deleteAllCategories();
+  }
   Future<List<CategoryEntity?>> getCategories({void params}) async {
     return await _categoryRepository.getCategories();
   }

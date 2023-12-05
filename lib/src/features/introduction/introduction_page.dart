@@ -138,7 +138,7 @@ class IntroductionPage extends StatelessWidget {
                 ),
               )),
           PageViewModel(
-            titleWidget: SvgPicture.asset(getOnboard, height: 500.h),
+            titleWidget: SvgPicture.asset(getOnboard, height: 400.h),
             bodyWidget: Column(
               children: [
                 Padding(
@@ -146,6 +146,14 @@ class IntroductionPage extends StatelessWidget {
                   child: Text(
                     "Lets get you onboard!",
                     style: TextStyle(fontSize: 20.sp),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    "Test User: test@test.com - 123456",
+                    style: TextStyle(fontSize: 14.sp, color: Colors.green),
                     textAlign: TextAlign.center,
                   ),
                 ),

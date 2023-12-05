@@ -43,6 +43,24 @@ class CategoryRepositoryImpl implements CategoryRepository {
   }
 
   @override
+  Future<void> deleteAllCategories() async {
+    try {
+      var db = FirebaseFirestore.instance;
+      var currentUserId = FirebaseAuth.instance.currentUser?.uid;
+      await db.collection('categories')
+          .where('user_id', isEqualTo: currentUserId)
+          .get().then(
+              (event) => {
+                for (var doc in event.docs)
+                  {doc.reference.delete()}
+              },
+              onError: (e) => print("Error getting documents $e"));
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
   Future<List<CategoryModel?>> getCategories() async {
     try {
       var db = FirebaseFirestore.instance;
