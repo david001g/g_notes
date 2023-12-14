@@ -16,6 +16,9 @@ Welcome to G_notes, a straightforward note-taking app designed for the web platf
 
 - **Get_it for Dependency Injection:** Dependency injection is managed through Get_it, offering a clean and straightforward approach to accessing and managing dependencies throughout the app.
 
+## Website Link 🌐
+Explore G_notes on the web: https://g_notes.codemagic.app/
+
 ## Showcase 📸
 ![prodImage5](https://github.com/david001g/g_notes/assets/94360199/144fd79b-8612-430f-a6a2-87ab207ae5be)
 ![prodImage4](https://github.com/david001g/g_notes/assets/94360199/5549d9a0-8db3-4afd-9392-37c08195656e)
