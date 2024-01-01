@@ -97,7 +97,7 @@ class Navbar extends StatelessWidget {
             )
           ],
           Gap(100.h),
-          const ThemeSwitch(),
+          //const ThemeSwitch(),
           Gap(20.h),
         ],
       ),
